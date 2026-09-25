@@ -1,0 +1,24 @@
+{
+  "name": "lattepaws",
+  "version": "1.0.0",
+  "description": "Premium dog printables & gifts for pet lovers.",
+  "main": "automate.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wesley-HKT/lattepaws.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/wesley-HKT/lattepaws/issues"
+  },
+  "homepage": "https://github.com/wesley-HKT/lattepaws#readme",
+  "dependencies": {
+    "@resvg/resvg-js": "^2.6.2"
+  }
+}
