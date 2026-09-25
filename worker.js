@@ -11,8 +11,18 @@
 //   SITE_URL = https://lattepaws.com
 // ============================================================
 
-const PRINTFUL_API_KEY = "oy42bJfc62iB1BRfW864F1lKqEAPjmNAIUw27dEf";
-const PRINTFUL_STORE_ID = "18807637";
+// ===== CONFIG (env vars with fallback) =====
+const DEFAULT_PRINTFUL_KEY = "oy42bJfc62iB1BRfW864F1lKqEAPjmNAIUw27dEf";
+const DEFAULT_STORE_ID = "18807637";
+
+function cfg(env) {
+  return {
+    printfulKey: env.PRINTFUL_API_KEY || DEFAULT_PRINTFUL_KEY,
+    storeId: env.PRINTFUL_STORE_ID || DEFAULT_STORE_ID,
+    stripeKey: env.STRIPE_SECRET_KEY || "",
+    siteUrl: env.SITE_URL || "https://lattepaws.com"
+  };
+}
 
 // Product catalog (mirrors the website)
 const CATALOG = {
@@ -39,7 +49,7 @@ function corsHeaders(env) {
 }
 
 // ===== PRINTFUL: Create Order =====
-async function createPrintfulOrder(customer, items) {
+async function createPrintfulOrder(c, customer, items) {
   const orderData = {
     recipient: {
       name: customer.name,
@@ -69,8 +79,8 @@ async function createPrintfulOrder(customer, items) {
   const response = await fetch("https://api.printful.com/orders", {
     method: "POST",
     headers: {
-      "Authorization": `Bearer ${PRINTFUL_API_KEY}`,
-      "X-PF-Store-Id": PRINTFUL_STORE_ID,
+      "Authorization": `Bearer ${c.printfulKey}`,
+      "X-PF-Store-Id": c.storeId,
       "Content-Type": "application/json"
     },
     body: JSON.stringify(orderData)
@@ -80,7 +90,7 @@ async function createPrintfulOrder(customer, items) {
 }
 
 // ===== STRIPE: Create Checkout Session =====
-async function createStripeCheckout(env, cart, origin) {
+async function createStripeCheckout(c, cart, origin) {
   const lineItems = cart.map(item => {
     const product = CATALOG[item.id];
     return {
@@ -128,7 +138,7 @@ async function createStripeCheckout(env, cart, origin) {
   const response = await fetch("https://api.stripe.com/v1/checkout/sessions", {
     method: "POST",
     headers: {
-      "Authorization": `Bearer ${env.STRIPE_SECRET_KEY}`,
+      "Authorization": `Bearer ${c.stripeKey}`,
       "Content-Type": "application/x-www-form-urlencoded"
     },
     body: body.toString()
@@ -141,6 +151,7 @@ async function createStripeCheckout(env, cart, origin) {
 async function handleRequest(request, env) {
   const url = new URL(request.url);
   const path = url.pathname;
+  const c = cfg(env);
   const headers = corsHeaders(env);
 
   if (request.method === "OPTIONS") {
@@ -153,7 +164,8 @@ async function handleRequest(request, env) {
       return new Response(JSON.stringify({ 
         status: "ok", 
         brand: "Latte Paws 🐾",
-        store: PRINTFUL_STORE_ID
+        store: c.storeId,
+        stripeConfigured: !!c.stripeKey
       }), { headers });
     }
 
@@ -161,7 +173,7 @@ async function handleRequest(request, env) {
     if (path === "/api/create-checkout" && request.method === "POST") {
       const { cart } = await request.json();
       const origin = url.origin;
-      const session = await createStripeCheckout(env, cart, origin);
+      const session = await createStripeCheckout(c, cart, origin);
 
       if (session.error) {
         return new Response(JSON.stringify({ error: session.error.message }), { status: 400, headers });
@@ -212,7 +224,7 @@ async function handleRequest(request, env) {
 
         let printfulResult = null;
         if (printfulItems.length > 0) {
-          printfulResult = await createPrintfulOrder(customer, printfulItems);
+          printfulResult = await createPrintfulOrder(c, customer, printfulItems);
         }
 
         return new Response(JSON.stringify({ 

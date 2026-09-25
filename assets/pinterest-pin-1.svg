@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1500" width="1000" height="1500">
+  <!-- Pinterest Pin - Vertical 2:3 -->
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1A1A2E"/>
+      <stop offset="100%" stop-color="#2D1B3D"/>
+    </linearGradient>
+  </defs>
+  
+  <rect width="1000" height="1500" fill="url(#bg)"/>
+  
+  <!-- Stars -->
+  <g fill="#F5D742" opacity="0.6">
+    <circle cx="100" cy="80" r="4"/>
+    <circle cx="250" cy="150" r="3"/>
+    <circle cx="800" cy="100" r="5"/>
+    <circle cx="900" cy="250" r="3"/>
+    <circle cx="150" cy="300" r="4"/>
+    <circle cx="850" cy="400" r="3"/>
+    <circle cx="80" cy="550" r="4"/>
+    <circle cx="920" cy="600" r="3"/>
+  </g>
+  
+  <!-- Moon -->
+  <circle cx="820" cy="180" r="70" fill="#F5D742" opacity="0.9"/>
+  <circle cx="850" cy="160" r="60" fill="#1A1A2E"/>
+  
+  <!-- Bats -->
+  <g fill="#0D0D1A">
+    <path d="M 150 180 Q 130 165 110 180 Q 130 172 150 180" />
+    <path d="M 150 180 Q 170 165 190 180 Q 170 172 150 180" />
+    <path d="M 700 300 Q 685 288 670 300 Q 685 294 700 300" />
+    <path d="M 700 300 Q 715 288 730 300 Q 715 294 700 300" />
+    <path d="M 300 500 Q 288 490 276 500 Q 288 495 300 500" />
+    <path d="M 300 500 Q 312 490 324 500 Q 312 495 300 500" />
+  </g>
+  
+  <!-- Headline -->
+  <text x="500" y="420" font-family="Georgia, serif" font-size="72" font-weight="bold" text-anchor="middle" fill="#F5D742">Spooky Pups</text>
+  <text x="500" y="510" font-family="Georgia, serif" font-size="54" text-anchor="middle" fill="#FFFFFF">Halloween Bandana</text>
+  
+  <!-- Dog with bandana illustration (simplified) -->
+  <g transform="translate(500, 780)">
+    <!-- Dog head -->
+    <circle cx="0" cy="-40" r="90" fill="#C4956A"/>
+    <!-- Ears -->
+    <ellipse cx="-70" cy="-90" rx="28" ry="45" fill="#B0825A" transform="rotate(-20 -70 -90)"/>
+    <ellipse cx="70" cy="-90" rx="28" ry="45" fill="#B0825A" transform="rotate(20 70 -90)"/>
+    <!-- Eyes -->
+    <circle cx="-30" cy="-50" r="13" fill="#1A1A2E"/>
+    <circle cx="30" cy="-50" r="13" fill="#1A1A2E"/>
+    <circle cx="-25" cy="-54" r="5" fill="white"/>
+    <circle cx="35" cy="-54" r="5" fill="white"/>
+    <!-- Nose -->
+    <ellipse cx="0" cy="-15" rx="14" ry="10" fill="#1A1A2E"/>
+    <!-- Mouth -->
+    <path d="M -12 0 Q 0 18 12 0" fill="none" stroke="#1A1A2E" stroke-width="4"/>
+    <path d="M -6 6 Q 0 22 6 6" fill="#E74C3C"/>
+    
+    <!-- BANDANA with pattern -->
+    <path d="M -110 30 Q 0 70 110 30 L 130 130 Q 0 180 -130 130 Z" fill="#1A1A2E" stroke="#F5D742" stroke-width="3"/>
+    <!-- Bandana pattern: mini pumpkins -->
+    <g fill="#E67E22">
+      <ellipse cx="-60" cy="80" rx="14" ry="12"/>
+      <ellipse cx="0" cy="95" rx="14" ry="12"/>
+      <ellipse cx="60" cy="80" rx="14" ry="12"/>
+    </g>
+    <!-- Bandana ghosts -->
+    <g fill="#F0F0F0">
+      <path d="M -25 70 Q -25 55 -15 55 Q -5 55 -5 70 L -5 85 Q -10 80 -15 85 Q -20 80 -25 85 Z"/>
+      <circle cx="-18" cy="64" r="2" fill="#1A1A2E"/>
+      <circle cx="-11" cy="64" r="2" fill="#1A1A2E"/>
+    </g>
+  </g>
+  
+  <!-- CTA Box -->
+  <g transform="translate(500, 1180)">
+    <rect x="-320" y="-50" width="640" height="100" rx="50" fill="#F5D742"/>
+    <text x="0" y="18" font-family="Arial, sans-serif" font-size="40" font-weight="bold" text-anchor="middle" fill="#1A1A2E">SHOP NOW → $19.99</text>
+  </g>
+  
+  <!-- Brand -->
+  <text x="500" y="1380" font-family="Georgia, serif" font-size="44" text-anchor="middle" fill="#9CAF88">🐾 Latte Paws</text>
+  <text x="500" y="1430" font-family="Arial, sans-serif" font-size="28" text-anchor="middle" fill="#7A6B5D">lattepaws.com</text>
+</svg>

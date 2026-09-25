@@ -1,0 +1,12 @@
+name = "lattepaws-worker"
+main = "worker.js"
+compatibility_date = "2026-09-25"
+
+# Environment variables (non-secret)
+[vars]
+PRINTFUL_STORE_ID = "18807637"
+SITE_URL = "https://lattepaws.com"
+
+# Secrets (set via: npx wrangler secret put NAME)
+# PRINTFUL_API_KEY
+# STRIPE_SECRET_KEY
