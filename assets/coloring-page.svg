@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 612 792" width="612" height="792">
+  <!-- 8.5x11 at 72dpi - Coloring Page -->
+  <rect width="612" height="792" fill="white"/>
+  
+  <!-- Title -->
+  <text x="306" y="80" font-family="Arial, sans-serif" font-size="36" font-weight="bold" text-anchor="middle" fill="#333">🐾 Spooky Pups 🐾</text>
+  <text x="306" y="110" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#888">A Halloween Coloring Page for Dog Lovers</text>
+  
+  <!-- Dog body - simple outline for coloring -->
+  <!-- Main body -->
+  <ellipse cx="306" cy="420" rx="120" ry="80" fill="none" stroke="#333" stroke-width="3"/>
+  
+  <!-- Head -->
+  <circle cx="306" cy="300" r="70" fill="none" stroke="#333" stroke-width="3"/>
+  
+  <!-- Ears -->
+  <ellipse cx="240" cy="260" rx="25" ry="40" fill="none" stroke="#333" stroke-width="3" transform="rotate(-15 240 260)"/>
+  <ellipse cx="372" cy="260" rx="25" ry="40" fill="none" stroke="#333" stroke-width="3" transform="rotate(15 372 260)"/>
+  
+  <!-- Eyes - big cute cartoon style -->
+  <circle cx="283" cy="290" r="12" fill="none" stroke="#333" stroke-width="2"/>
+  <circle cx="329" cy="290" r="12" fill="none" stroke="#333" stroke-width="2"/>
+  <circle cx="286" cy="288" r="4" fill="#333"/>
+  <circle cx="332" cy="288" r="4" fill="#333"/>
+  
+  <!-- Nose -->
+  <ellipse cx="306" cy="315" rx="8" ry="5" fill="none" stroke="#333" stroke-width="2"/>
+  
+  <!-- Mouth -->
+  <path d="M 298 325 Q 306 338 314 325" fill="none" stroke="#333" stroke-width="2"/>
+  <line x1="306" y1="320" x2="306" y2="325" stroke="#333" stroke-width="2"/>
+  
+  <!-- Tongue -->
+  <path d="M 302 336 Q 306 348 310 336" fill="none" stroke="#333" stroke-width="2"/>
+  
+  <!-- Paws -->
+  <ellipse cx="240" cy="490" rx="20" ry="12" fill="none" stroke="#333" stroke-width="3"/>
+  <ellipse cx="372" cy="490" rx="20" ry="12" fill="none" stroke="#333" stroke-width="3"/>
+  
+  <!-- Tail -->
+  <path d="M 426 400 Q 460 370 450 340" fill="none" stroke="#333" stroke-width="3" stroke-linecap="round"/>
+  
+  <!-- Pumpkin on left -->
+  <ellipse cx="160" cy="350" rx="35" ry="30" fill="none" stroke="#333" stroke-width="2"/>
+  <ellipse cx="160" cy="350" rx="30" ry="30" fill="none" stroke="#333" stroke-width="2"/>
+  <ellipse cx="160" cy="350" rx="25" ry="30" fill="none" stroke="#333" stroke-width="2"/>
+  <!-- Pumpkin stem -->
+  <rect x="157" y="315" width="6" height="12" rx="2" fill="none" stroke="#333" stroke-width="2"/>
+  <!-- Pumpkin face -->
+  <path d="M 148 348 L 152 340 L 156 348" fill="none" stroke="#333" stroke-width="2"/>
+  <path d="M 164 348 L 168 340 L 172 348" fill="none" stroke="#333" stroke-width="2"/>
+  <path d="M 150 358 Q 160 368 170 358" fill="none" stroke="#333" stroke-width="2"/>
+  
+  <!-- Ghost on right -->
+  <path d="M 440 340 Q 440 280 460 280 Q 480 280 480 340 L 480 420 Q 472 410 464 420 Q 456 410 448 420 Q 440 410 440 420 Z" fill="none" stroke="#333" stroke-width="2"/>
+  <!-- Ghost eyes -->
+  <circle cx="455" cy="310" r="5" fill="none" stroke="#333" stroke-width="2"/>
+  <circle cx="470" cy="310" r="5" fill="none" stroke="#333" stroke-width="2"/>
+  <!-- Ghost mouth -->
+  <ellipse cx="462" cy="325" rx="6" ry="4" fill="none" stroke="#333" stroke-width="2"/>
+  
+  <!-- Stars -->
+  <polygon points="100,200 103,210 114,210 105,217 108,227 100,220 92,227 95,217 86,210 97,210" fill="none" stroke="#333" stroke-width="1.5"/>
+  <polygon points="500,180 503,190 514,190 505,197 508,207 500,200 492,207 495,197 486,190 497,190" fill="none" stroke="#333" stroke-width="1.5"/>
+  <polygon points="80,500 82,506 89,506 84,510 86,516 80,512 74,516 76,510 71,506 78,506" fill="none" stroke="#333" stroke-width="1.5"/>
+  <polygon points="530,480 532,486 539,486 534,490 536,496 530,492 524,496 526,490 521,486 528,486" fill="none" stroke="#333" stroke-width="1.5"/>
+  
+  <!-- Bat -->
+  <path d="M 60 300 Q 70 280 80 300 Q 70 290 60 300" fill="none" stroke="#333" stroke-width="1.5"/>
+  <path d="M 80 300 Q 90 280 100 300 Q 90 290 80 300" fill="none" stroke="#333" stroke-width="1.5"/>
+  <circle cx="80" cy="305" r="3" fill="none" stroke="#333" stroke-width="1.5"/>
+  
+  <!-- Cobweb -->
+  <path d="M 540 200 L 560 170 L 570 200 Z" fill="none" stroke="#333" stroke-width="1"/>
+  <path d="M 545 200 L 560 180 L 565 200" fill="none" stroke="#333" stroke-width="1"/>
+  <path d="M 540 200 Q 555 185 570 200" fill="none" stroke="#333" stroke-width="1"/>
+  
+  <!-- Ground/grass line -->
+  <path d="M 100 500 Q 200 490 306 500 Q 400 510 500 500" fill="none" stroke="#333" stroke-width="2"/>
+  
+  <!-- Small grass tufts -->
+  <path d="M 200 498 L 202 488 L 204 498" fill="none" stroke="#333" stroke-width="1.5"/>
+  <path d="M 400 502 L 402 492 L 404 502" fill="none" stroke="#333" stroke-width="1.5"/>
+  <path d="M 130 500 L 132 492 L 134 500" fill="none" stroke="#333" stroke-width="1.5"/>
+  
+  <!-- Candy corn decorations -->
+  <polygon points="520,550 525,535 530,550" fill="none" stroke="#333" stroke-width="1.5"/>
+  <polygon points="535,555 540,540 545,555" fill="none" stroke="#333" stroke-width="1.5"/>
+  
+  <!-- Footer text -->
+  <text x="306" y="700" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#aaa">© 2026 Latte Paws · lattepaws.com</text>
+  <text x="306" y="720" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="#ccc">Free for personal use. Share with your pup friends! 🐶</text>
+</svg>

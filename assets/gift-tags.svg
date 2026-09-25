@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 612 792" width="612" height="792">
+  <!-- 8.5x11 Gift Tags Sheet - 12 Tags (3x4 grid) -->
+  <rect width="612" height="792" fill="#F5F0EB"/>
+  
+  <!-- Title -->
+  <text x="306" y="30" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#5C4A3A">Halloween Dog Gift Tags · Cut along dotted lines</text>
+  
+  <!-- Tag template -->
+  <defs>
+    <g id="tag">
+      <rect x="0" y="0" width="175" height="170" rx="8" fill="white" stroke="#C4A882" stroke-width="1.5"/>
+      <circle cx="87" cy="15" r="5" fill="none" stroke="#C4A882" stroke-width="1"/>
+      <!-- Scallop bottom -->
+      <path d="M 0 160 Q 10 155 20 160 Q 30 165 40 160 Q 50 155 60 160 Q 70 165 80 160 Q 90 155 100 160 Q 110 165 120 160 Q 130 155 140 160 Q 150 165 160 160 Q 170 155 175 160" fill="none" stroke="#C4A882" stroke-width="1.5"/>
+    </g>
+  </defs>
+  
+  <!-- Row 1: Dog in Pumpkin -->
+  <use href="#tag" x="20" y="50"/>
+  <circle cx="107" cy="100" r="22" fill="none" stroke="#333" stroke-width="2"/>
+  <ellipse cx="107" cy="120" rx="18" ry="12" fill="none" stroke="#333" stroke-width="2"/>
+  <ellipse cx="95" cy="130" rx="8" ry="5" fill="none" stroke="#333" stroke-width="2"/>
+  <circle cx="100" cy="95" r="3" fill="#333"/>
+  <circle cx="114" cy="95" r="3" fill="#333"/>
+  <ellipse cx="107" cy="105" rx="3" ry="2" fill="none" stroke="#333" stroke-width="1.5"/>
+  <text x="107" y="94" font-family="serif" font-size="22" text-anchor="middle" fill="#E67E22">🎃</text>
+  <text x="107" y="158" font-family="Arial" font-size="8" text-anchor="middle" fill="#888">PUMPKIN PUP</text>
+  
+  <!-- Row 1: Dog as Ghost -->
+  <use href="#tag" x="218" y="50"/>
+  <path d="M 290 80 Q 290 68 307 68 Q 324 68 324 80 L 324 115 Q 316 110 307 115 Q 298 110 290 115 Z" fill="none" stroke="#333" stroke-width="2"/>
+  <circle cx="300" cy="88" r="3" fill="#333"/>
+  <circle cx="316" cy="88" r="3" fill="#333"/>
+  <ellipse cx="308" cy="97" rx="4" ry="3" fill="none" stroke="#333" stroke-width="1.5"/>
+  <circle cx="307" cy="72" r="8" fill="none" stroke="#333" stroke-width="1.5"/>
+  <text x="307" y="140" font-family="Arial" font-size="8" text-anchor="middle" fill="#888">BOO! 👻</text>
+  
+  <!-- Row 1: Dog as Witch -->
+  <use href="#tag" x="416" y="50"/>
+  <path d="M 490 68 L 500 45 L 510 68" fill="none" stroke="#333" stroke-width="2"/>
+  <rect x="487" y="68" width="26" height="4" rx="1" fill="none" stroke="#333" stroke-width="1.5"/>
+  <circle cx="507" cy="95" r="20" fill="none" stroke="#333" stroke-width="2"/>
+  <circle cx="500" cy="90" r="3" fill="#333"/>
+  <circle cx="514" cy="90" r="3" fill="#333"/>
+  <ellipse cx="507" cy="100" rx="3" ry="2" fill="none" stroke="#333" stroke-width="1.5"/>
+  <text x="507" y="140" font-family="Arial" font-size="8" text-anchor="middle" fill="#888">WITCH PUP 🧙</text>
+  
+  <!-- Row 2: Dog as Bat -->
+  <use href="#tag" x="20" y="240"/>
+  <path d="M 90 270 Q 75 265 70 275 Q 80 270 90 275" fill="none" stroke="#333" stroke-width="2"/>
+  <path d="M 90 275 Q 105 265 110 275 Q 100 270 90 275" fill="none" stroke="#333" stroke-width="2"/>
+  <circle cx="90" cy="280" r="15" fill="none" stroke="#333" stroke-width="2"/>
+  <circle cx="100" cy="310" r="8" fill="none" stroke="#333" stroke-width="2"/>
+  <circle cx="84" cy="277" r="2.5" fill="#333"/>
+  <circle cx="96" cy="277" r="2.5" fill="#333"/>
+  <text x="90" y="340" font-family="Arial" font-size="8" text-anchor="middle" fill="#888">BAT DOG 🦇</text>
+  
+  <!-- Row 2: Dog as Hotdog -->
+  <use href="#tag" x="218" y="240"/>
+  <ellipse cx="307" cy="280" rx="30" ry="12" fill="none" stroke="#333" stroke-width="2"/>
+  <ellipse cx="307" cy="276" rx="28" ry="8" fill="none" stroke="#333" stroke-width="2"/>
+  <path d="M 285 280 Q 285 295 290 300" fill="none" stroke="#333" stroke-width="1.5"/>
+  <path d="M 329 280 Q 329 295 324 300" fill="none" stroke="#333" stroke-width="1.5"/>
+  <circle cx="307" cy="310" r="16" fill="none" stroke="#333" stroke-width="2"/>
+  <circle cx="301" cy="307" r="2.5" fill="#333"/>
+  <circle cx="313" cy="307" r="2.5" fill="#333"/>
+  <text x="307" y="340" font-family="Arial" font-size="8" text-anchor="middle" fill="#888">HOTDOG DOG 🌭</text>
+  
+  <!-- Row 2: Dog with Candy -->
+  <use href="#tag" x="416" y="240"/>
+  <circle cx="507" cy="280" r="18" fill="none" stroke="#333" stroke-width="2"/>
+  <circle cx="500" cy="276" r="2.5" fill="#333"/>
+  <circle cx="514" cy="276" r="2.5" fill="#333"/>
+  <ellipse cx="507" cy="286" rx="3" ry="2" fill="none" stroke="#333" stroke-width="1.5"/>
+  <ellipse cx="507" cy="310" rx="20" ry="14" fill="none" stroke="#333" stroke-width="2"/>
+  <rect x="520" y="280" width="12" height="20" rx="3" transform="rotate(-15 526 290)" fill="none" stroke="#333" stroke-width="1.5"/>
+  <text x="507" y="340" font-family="Arial" font-size="8" text-anchor="middle" fill="#888">TRICK OR TREAT 🍬</text>
+  
+  <!-- Row 3: Dog as Vampire -->
+  <use href="#tag" x="20" y="430"/>
+  <circle cx="107" cy="470" r="18" fill="none" stroke="#333" stroke-width="2"/>
+  <circle cx="100" cy="466" r="2.5" fill="#333"/>
+  <circle cx="114" cy="466" r="2.5" fill="#333"/>
+  <path d="M 103 478 L 100 485" fill="none" stroke="#333" stroke-width="1.5"/>
+  <path d="M 111 478 L 114 485" fill="none" stroke="#333" stroke-width="1.5"/>
+  <path d="M 90 460 L 107 445 L 124 460" fill="none" stroke="#333" stroke-width="2"/>
+  <rect x="100" y="500" width="14" height="18" rx="2" fill="none" stroke="#333" stroke-width="1.5"/>
+  <text x="107" y="535" font-family="Arial" font-size="8" text-anchor="middle" fill="#888">VAMPIRE PUP 🧛</text>
+  
+  <!-- Row 3: Dog in Sweater -->
+  <use href="#tag" x="218" y="430"/>
+  <circle cx="307" cy="465" r="18" fill="none" stroke="#333" stroke-width="2"/>
+  <circle cx="300" cy="461" r="2.5" fill="#333"/>
+  <circle cx="314" cy="461" r="2.5" fill="#333"/>
+  <ellipse cx="307" cy="490" rx="22" ry="16" fill="none" stroke="#333" stroke-width="2"/>
+  <path d="M 285 490 L 285 510" fill="none" stroke="#333" stroke-width="1.5"/>
+  <path d="M 329 490 L 329 510" fill="none" stroke="#333" stroke-width="1.5"/>
+  <text x="307" y="535" font-family="Arial" font-size="8" text-anchor="middle" fill="#888">COZY PUP 🧶</text>
+  
+  <!-- Row 3: Dog Skeleton -->
+  <use href="#tag" x="416" y="430"/>
+  <circle cx="507" cy="465" r="15" fill="none" stroke="#333" stroke-width="2"/>
+  <circle cx="502" cy="462" r="2" fill="#333"/>
+  <circle cx="512" cy="462" r="2" fill="#333"/>
+  <path d="M 500 475 Q 507 480 514 475" fill="none" stroke="#333" stroke-width="1.5"/>
+  <path d="M 507 480 L 507 505" fill="none" stroke="#333" stroke-width="2"/>
+  <line x1="490" y1="490" x2="507" y2="490" stroke="#333" stroke-width="1.5"/>
+  <line x1="507" y1="490" x2="524" y2="490" stroke="#333" stroke-width="1.5"/>
+  <line x1="490" y1="495" x2="524" y2="495" stroke="#333" stroke-width="1.5"/>
+  <text x="507" y="535" font-family="Arial" font-size="8" text-anchor="middle" fill="#888">SPOOKY SKELETON 💀</text>
+  
+  <!-- Cut lines -->
+  <line x1="0" y1="220" x2="612" y2="220" stroke="#C4A882" stroke-width="0.5" stroke-dasharray="4,3"/>
+  <line x1="0" y1="410" x2="612" y2="410" stroke="#C4A882" stroke-width="0.5" stroke-dasharray="4,3"/>
+  <line x1="198" y1="40" x2="198" y2="590" stroke="#C4A882" stroke-width="0.5" stroke-dasharray="4,3"/>
+  <line x1="396" y1="40" x2="396" y2="590" stroke="#C4A882" stroke-width="0.5" stroke-dasharray="4,3"/>
+  
+  <!-- Bottom text -->
+  <text x="306" y="630" font-family="Arial" sans-serif="sans-serif" font-size="11" text-anchor="middle" fill="#5C4A3A">🎃 12 Spooky Gift Tags — Print on cardstock, cut out, and attach!</text>
+  <text x="306" y="650" font-family="Arial" sans-serif="sans-serif" font-size="9" text-anchor="middle" fill="#aaa">© 2026 Latte Paws · lattepaws.com</text>
+</svg>
