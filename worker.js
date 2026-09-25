@@ -20,8 +20,46 @@ function cfg(env) {
     printfulKey: env.PRINTFUL_API_KEY || DEFAULT_PRINTFUL_KEY,
     storeId: env.PRINTFUL_STORE_ID || DEFAULT_STORE_ID,
     stripeKey: env.STRIPE_SECRET_KEY || "",
+    webhookSecret: env.STRIPE_WEBHOOK_SECRET || "",
     siteUrl: env.SITE_URL || "https://lattepaws.com"
   };
+}
+
+// ===== STRIPE WEBHOOK SIGNATURE VERIFICATION =====
+async function verifyStripeSignature(payload, sigHeader, secret) {
+  if (!sigHeader) return false;
+
+  const parts = sigHeader.split(",");
+  let timestamp = null;
+  const signatures = [];
+  for (const part of parts) {
+    const idx = part.indexOf("=");
+    const k = part.slice(0, idx);
+    const v = part.slice(idx + 1);
+    if (k === "t") timestamp = v;
+    if (k === "v1") signatures.push(v);
+  }
+  if (!timestamp || signatures.length === 0) return false;
+
+  // Reject if older than 5 minutes (replay protection)
+  const age = Math.floor(Date.now() / 1000) - parseInt(timestamp, 10);
+  if (age > 300) return false;
+
+  const signedPayload = `${timestamp}.${payload}`;
+  const encoder = new TextEncoder();
+  const key = await crypto.subtle.importKey(
+    "raw",
+    encoder.encode(secret),
+    { name: "HMAC", hash: "SHA-256" },
+    false,
+    ["sign"]
+  );
+  const sigBuffer = await crypto.subtle.sign("HMAC", key, encoder.encode(signedPayload));
+  const expected = [...new Uint8Array(sigBuffer)]
+    .map(b => b.toString(16).padStart(2, "0"))
+    .join("");
+
+  return signatures.includes(expected);
 }
 
 // Product catalog (mirrors the website)
@@ -165,7 +203,8 @@ async function handleRequest(request, env) {
         status: "ok", 
         brand: "Latte Paws 🐾",
         store: c.storeId,
-        stripeConfigured: !!c.stripeKey
+        stripeConfigured: !!c.stripeKey,
+        webhookVerified: !!c.webhookSecret
       }), { headers });
     }
 
@@ -183,7 +222,23 @@ async function handleRequest(request, env) {
 
     // Stripe webhook → create Printful order
     if (path === "/api/stripe-webhook" && request.method === "POST") {
-      const event = await request.json();
+      const rawBody = await request.text();
+      const sigHeader = request.headers.get("Stripe-Signature");
+
+      // Verify signature if secret is configured
+      if (c.webhookSecret) {
+        const valid = await verifyStripeSignature(rawBody, sigHeader, c.webhookSecret);
+        if (!valid) {
+          return new Response(JSON.stringify({ error: "Invalid signature" }), { status: 400, headers });
+        }
+      }
+
+      let event;
+      try {
+        event = JSON.parse(rawBody);
+      } catch (e) {
+        return new Response(JSON.stringify({ error: "Invalid JSON" }), { status: 400, headers });
+      }
 
       if (event.type === "checkout.session.completed") {
         const session = event.data.object;
