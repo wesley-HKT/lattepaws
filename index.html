@@ -685,6 +685,7 @@
 
         <div class="category-tabs">
             <button class="tab-btn active" onclick="filterProducts('all')">All</button>
+            <button class="tab-btn" onclick="filterProducts('bandanas')">🐕 Bandanas</button>
             <button class="tab-btn" onclick="filterProducts('halloween')">🎃 Halloween</button>
             <button class="tab-btn" onclick="filterProducts('christmas')">🎄 Christmas</button>
             <button class="tab-btn" onclick="filterProducts('cards')">💌 Cards</button>
@@ -814,6 +815,18 @@
     // ===== PRODUCT DATA =====
     const products = [
         {
+            id: 100,
+            name: "Spooky Pups Halloween Bandana",
+            category: "bandanas",
+            price: 19.99,
+            emoji: "🎃",
+            image: "products/halloween-bandana.svg",
+            description: "All-over print dog bandana with spooky pups, ghosts & pumpkins. Made in USA, ships in 2-5 days. Sizes S/M/L.",
+            download: false,
+            physical: true,
+            printful: { productId: null, variants: { S: 16031, M: 16032, L: 16033 } }
+        },
+        {
             id: 1,
             name: "Spooky Pups Halloween Coloring Book",
             category: "halloween",
@@ -942,15 +955,24 @@
         grid.innerHTML = filtered.map(p => `
             <div class="product-card">
                 <div class="product-image">
-                    <span style="font-size: 4rem;">${p.emoji}</span>
+                    ${p.image 
+                        ? `<img src="${p.image}" alt="${p.name}" style="width:100%;height:100%;object-fit:cover;">`
+                        : `<span style="font-size: 4rem;">${p.emoji}</span>`}
                 </div>
                 <div class="product-info">
                     <span class="category-tag">${getCategoryLabel(p.category)}</span>
                     <h3>${p.name}</h3>
                     <div class="price">$${p.price.toFixed(2)} USD</div>
                     <p class="description">${p.description}</p>
+                    ${p.physical ? `
+                        <select class="size-select" id="size-${p.id}" style="width:100%;padding:8px;margin-bottom:10px;border:1.5px solid var(--clay);border-radius:50px;background:white;font-size:0.85rem;color:var(--text);">
+                            <option value="S">Small (puppies & small dogs)</option>
+                            <option value="M" selected>Medium (most dogs)</option>
+                            <option value="L">Large (big dogs & humans)</option>
+                        </select>
+                    ` : ''}
                     <button class="btn-add" onclick="addToCart(${p.id})">
-                        ${p.download ? '📥 Add to Cart' : '🛒 Add to Cart'}
+                        ${p.physical ? '🛒 Add to Cart' : '📥 Add to Cart'}
                     </button>
                 </div>
             </div>
@@ -959,6 +981,7 @@
 
     function getCategoryLabel(cat) {
         const labels = {
+            bandanas: '🐕 Bandana',
             halloween: '🎃 Halloween',
             christmas: '🎄 Christmas',
             cards: '💌 Cards',
@@ -977,20 +1000,29 @@
     // ===== CART =====
     function addToCart(productId) {
         const product = products.find(p => p.id === productId);
-        const existing = cart.find(item => item.id === productId);
+        
+        // Capture selected size for physical products
+        let size = null;
+        if (product.physical) {
+            const sizeEl = document.getElementById(`size-${productId}`);
+            size = sizeEl ? sizeEl.value : 'M';
+        }
+        
+        const cartKey = size ? `${productId}-${size}` : `${productId}`;
+        const existing = cart.find(item => item.cartKey === cartKey);
         
         if (existing) {
             existing.quantity += 1;
         } else {
-            cart.push({ ...product, quantity: 1 });
+            cart.push({ ...product, quantity: 1, size, cartKey });
         }
         
         updateCartUI();
-        showToast(`🐾 "${product.name}" added to cart!`);
+        showToast(`🐾 "${product.name}"${size ? ` (${size})` : ''} added to cart!`);
     }
 
-    function removeFromCart(productId) {
-        cart = cart.filter(item => item.id !== productId);
+    function removeFromCart(cartKey) {
+        cart = cart.filter(item => item.cartKey !== cartKey);
         updateCartUI();
     }
 
@@ -1007,10 +1039,11 @@
                     <div class="cart-item-image"><span style="font-size: 1.5rem;">${item.emoji}</span></div>
                     <div class="cart-item-info">
                         <h4>${item.name}</h4>
+                        ${item.size ? `<small style="color:var(--forest);">Size: ${item.size}</small><br>` : ''}
                         <div class="cart-price">$${(item.price * item.quantity).toFixed(2)} USD</div>
                         <small>Qty: ${item.quantity}</small>
                     </div>
-                    <button class="cart-item-remove" onclick="removeFromCart(${item.id})">✕</button>
+                    <button class="cart-item-remove" onclick="removeFromCart('${item.cartKey}')">✕</button>
                 </div>
             `).join('');
         }
