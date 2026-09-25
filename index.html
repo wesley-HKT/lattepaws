@@ -824,7 +824,14 @@
             description: "All-over print dog bandana with spooky pups, ghosts & pumpkins. Made in USA, ships in 2-5 days. Sizes S/M/L.",
             download: false,
             physical: true,
-            printful: { productId: null, variants: { S: 16031, M: 16032, L: 16033 } }
+            printful: { 
+                productId: 475176873, 
+                variants: { 
+                    S: { syncVariantId: 5518213312, variantId: 16031 },
+                    M: { syncVariantId: 5518213314, variantId: 16032 },
+                    L: { syncVariantId: 5518213315, variantId: 16033 }
+                } 
+            }
         },
         {
             id: 1,
@@ -1057,39 +1064,43 @@
         document.getElementById('cartSidebar').classList.toggle('open');
     }
 
-    // ===== CHECKOUT =====
-        // STRIPE SETUP - Replace with your actual Payment Link
-        const STRIPE_PAYMENT_LINK = 'https://buy.stripe.com/PASTE_YOUR_LINK_HERE';
-        
-        async function checkout() {
-            if (cart.length === 0) {
-                showToast('🐾 Your cart is empty!');
-                return;
-            }
-            
-            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-            
-            // Build a Stripe Checkout session
-            const lineItems = cart.map(item => ({
-                price_data: {
-                    currency: 'usd',
-                    product_data: {
-                        name: item.name,
-                        description: item.description,
-                    },
-                    unit_amount: Math.round(item.price * 100), // Stripe uses cents
-                },
-                quantity: item.quantity,
-            }));
-            
-            try {
-                // Redirect to Stripe Payment Link
-                // Replace with your actual Stripe Payment Link from Dashboard
-                window.location.href = STRIPE_PAYMENT_LINK;
-            } catch (error) {
-                showToast('❌ Checkout error. Please email woof@lattepaws.com');
-            }
+    // ===== CHECKOUT (via Cloudflare Worker → Stripe → Printful) =====
+    const WORKER_URL = 'https://lattepaws-worker.YOUR-SUBDOMAIN.workers.dev';
+
+    async function checkout() {
+        if (cart.length === 0) {
+            showToast('🐾 Your cart is empty!');
+            return;
         }
+
+        showToast('🛒 Redirecting to secure checkout...');
+
+        try {
+            const response = await fetch(`${WORKER_URL}/api/create-checkout`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    cart: cart.map(item => ({
+                        id: item.id,
+                        size: item.size,
+                        quantity: item.quantity
+                    }))
+                })
+            });
+
+            const data = await response.json();
+
+            if (data.url) {
+                window.location.href = data.url;
+            } else {
+                showToast('❌ Checkout error. Please email woof@lattepaws.com');
+                console.error(data);
+            }
+        } catch (error) {
+            showToast('❌ Checkout error. Please email woof@lattepaws.com');
+            console.error(error);
+        }
+    }
     
 
     // ===== EMAIL CAPTURE =====

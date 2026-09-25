@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmed — Latte Paws</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cream: #F5F0EB;
+            --clay: #C4A882;
+            --brown: #8B7355;
+            --dark-brown: #5C4A3A;
+            --sage: #9CAF88;
+            --forest: #5A7A4A;
+            --text: #3D3229;
+            --text-light: #7A6B5D;
+            --white: #FFFBF7;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--cream);
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+        }
+        .card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 60px 40px;
+            max-width: 520px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(92,74,58,0.12);
+        }
+        .icon { font-size: 4rem; margin-bottom: 16px; }
+        h1 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 2rem;
+            color: var(--dark-brown);
+            margin-bottom: 12px;
+        }
+        p { color: var(--text-light); margin-bottom: 16px; line-height: 1.7; }
+        .highlight { color: var(--forest); font-weight: 600; }
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 14px 32px;
+            background: var(--dark-brown);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+        .btn:hover { background: var(--brown); }
+        .social { margin-top: 28px; font-size: 0.9rem; }
+        .social a { color: var(--forest); text-decoration: none; font-weight: 500; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="icon">🐾</div>
+        <h1>Thank you!</h1>
+        <p>Your order has been confirmed. We've sent a receipt to your email.</p>
+        <p class="highlight">🎉 Your pup is going to look amazing!</p>
+        <p style="font-size: 0.9rem;">Physical items ship from the USA within 2-5 business days. Digital downloads arrive instantly.</p>
+        <a href="/" class="btn">← Back to Shop</a>
+        <div class="social">
+            <p style="font-size: 0.85rem;">Tag us on social media 🐕<br><a href="#">@lattepaws</a></p>
+        </div>
+    </div>
+</body>
+</html>

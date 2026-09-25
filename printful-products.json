@@ -1,0 +1,22 @@
+{
+  "store": {
+    "id": "18807637",
+    "name": "LattePaw"
+  },
+  "products": [
+    {
+      "name": "Spooky Pups Halloween Bandana",
+      "printful_product_id": 475176873,
+      "design": "products/halloween-bandana.png",
+      "retail_price": 19.99,
+      "cost_price": 10.50,
+      "profit_per_unit": 9.49,
+      "variants": {
+        "S": { "sync_variant_id": 5518213312, "variant_id": 16031 },
+        "M": { "sync_variant_id": 5518213314, "variant_id": 16032 },
+        "L": { "sync_variant_id": 5518213315, "variant_id": 16033 }
+      }
+    }
+  ],
+  "updated": "2026-09-25"
+}
